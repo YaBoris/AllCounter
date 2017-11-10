@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>addwirelescan</class>
+ <widget class="QDialog" name="addwirelescan">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>338</width>
+    <height>529</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
+   <item row="9" column="0" colspan="3">
+    <widget class="QComboBox" name="addWhereFrom"/>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QComboBox" name="addNameDevice">
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0" colspan="3">
+    <widget class="QLabel" name="labelReciever">
+     <property name="text">
+      <string>* За кем закреплен</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="17" column="0" colspan="3">
+    <widget class="QLabel" name="leftSymbols">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QLabel" name="labelSerial">
+     <property name="text">
+      <string>* Серийный номер</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="0" colspan="3">
+    <widget class="QComboBox" name="addCoworker"/>
+   </item>
+   <item row="18" column="0" colspan="3">
+    <widget class="QLabel" name="labelNote2">
+     <property name="text">
+      <string>Звездочкой '*' отмечены обязательные поля</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0" colspan="3">
+    <widget class="QLabel" name="labelSubdivision">
+     <property name="text">
+      <string>* Откуда поступил</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="2">
+    <widget class="QLabel" name="labelNote">
+     <property name="text">
+      <string>Примечание</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="19" column="1">
+    <widget class="QPushButton" name="pushButtonSave">
+     <property name="text">
+      <string>Добавить</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="3">
+    <widget class="QLineEdit" name="addSerial"/>
+   </item>
+   <item row="10" column="0" colspan="3">
+    <widget class="QLabel" name="labelStatus">
+     <property name="text">
+      <string>* Статус устройства</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="16" column="0" colspan="3">
+    <widget class="QTextEdit" name="addNoteDevice"/>
+   </item>
+   <item row="19" column="2">
+    <widget class="QPushButton" name="pushButtonCancel">
+     <property name="text">
+      <string>Отмена</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="QLabel" name="labelName">
+     <property name="text">
+      <string>* Название устройства</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0" colspan="3">
+    <widget class="QComboBox" name="addStatus"/>
+   </item>
+   <item row="19" column="0">
+    <widget class="QPushButton" name="pushAddAndContinue">
+     <property name="text">
+      <string>Сохранить и добавить ещё</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QCheckBox" name="addNoSerial">
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Без серийного номера</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="3">
+    <widget class="QLabel" name="leftSymbolsSerial">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="0">
+    <widget class="QRadioButton" name="radioButtonNew">
+     <property name="text">
+      <string>Новый</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="0">
+    <widget class="QRadioButton" name="radioButtonOld">
+     <property name="text">
+      <string>Б/У</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <zorder>addSerial</zorder>
+  <zorder>addCoworker</zorder>
+  <zorder>addStatus</zorder>
+  <zorder>addNoteDevice</zorder>
+  <zorder>labelSerial</zorder>
+  <zorder>labelSubdivision</zorder>
+  <zorder>labelReciever</zorder>
+  <zorder>labelStatus</zorder>
+  <zorder>addWhereFrom</zorder>
+  <zorder>labelNote</zorder>
+  <zorder>pushAddAndContinue</zorder>
+  <zorder>labelNote2</zorder>
+  <zorder>radioButtonNew</zorder>
+  <zorder>radioButtonOld</zorder>
+  <zorder>pushButtonSave</zorder>
+  <zorder>pushButtonCancel</zorder>
+  <zorder>leftSymbols</zorder>
+  <zorder>leftSymbolsSerial</zorder>
+  <zorder>labelName</zorder>
+  <zorder>addNameDevice</zorder>
+  <zorder>addNoSerial</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

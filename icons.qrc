@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imgs/filenew.png</file>
+        <file>imgs/filesave.png</file>
+        <file>imgs/notebook.png</file>
+        <file>imgs/phone.png</file>
+        <file>imgs/printer.png</file>
+        <file>imgs/reserve.png</file>
+        <file>imgs/switch.png</file>
+        <file>imgs/workplace.png</file>
+    </qresource>
+</RCC>
