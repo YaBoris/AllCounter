@@ -19,6 +19,9 @@ WindowAddNewPosition::WindowAddNewPosition(QWidget *parent) :
 
 	OkButton = new QPushButton;
 	CancelButton = new QPushButton;
+	SetFeaturesOfDevices = new QPushButton;
+	NextAddNameDevice = new QPushButton;
+	NextAddTypeDevice = new QPushButton;
 
 	ListOfTypesDevices->setText("Выберите тип устройства");
 	ListOfNamesDevices->setText("Выберите название устройства");
@@ -29,9 +32,16 @@ WindowAddNewPosition::WindowAddNewPosition(QWidget *parent) :
 
 	OkButton->setText("Oк");
 	CancelButton->setText("Отмена");
+	NextAddNameDevice->setText("Создать устройство");
+	NextAddTypeDevice->setText("Создать тип");
+	SetFeaturesOfDevices->setText("Определить характеристики");
 	OkButton->baseSize();
 	CancelButton->baseSize();
+	SetFeaturesOfDevices->baseSize();
+	NextAddNameDevice->baseSize();
+	NextAddTypeDevice->baseSize();
 
+	horBoxLayout->addWidget(SetFeaturesOfDevices);
 	horBoxLayout->addWidget(OkButton);
 	horBoxLayout->addWidget(CancelButton);
 	horBoxLayout->setSpacing(25);
@@ -42,10 +52,12 @@ WindowAddNewPosition::WindowAddNewPosition(QWidget *parent) :
 	vertBoxLayout->addWidget(ListOfTypesDevices);
 	vertBoxLayout->addWidget(BoxOfTypesDevices);
 	vertBoxLayout->addWidget(NewTypeDeviceLine);
+	vertBoxLayout->addWidget(NextAddTypeDevice);
 	vertBoxLayout->addStretch(2);
 	vertBoxLayout->addWidget(ListOfNamesDevices);
 	vertBoxLayout->addWidget(BoxOfNamesDevices);
 	vertBoxLayout->addWidget(NewNameDeviceLine);
+	vertBoxLayout->addWidget(NextAddNameDevice);
 	vertBoxLayout->addStretch(6);
 	vertBoxLayout->addLayout(horBoxLayout);
 //	vertBoxLayout->setSpacing(15);

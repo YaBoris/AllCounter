@@ -23,12 +23,17 @@ private:
 	QLabel* ListOfTypesDevices;
 	QLabel* ListOfNamesDevices;
 	QLabel* ListOfFeatureDevices;
+
 	QComboBox* BoxOfTypesDevices;
 	QComboBox* BoxOfNamesDevices;
 	QComboBox* BoxOfFeatureDevices;
+
 	QPushButton* OkButton;
 	QPushButton* CancelButton;
-	QButtonGroup* ButtonGroup;
+	QPushButton* SetFeaturesOfDevices;
+	QPushButton* NextAddTypeDevice;
+	QPushButton* NextAddNameDevice;
+
 	QLineEdit* NewTypeDeviceLine;
 	QLineEdit* NewNameDeviceLine;
 	QLineEdit* NewFeatureOfDeviceLine;
