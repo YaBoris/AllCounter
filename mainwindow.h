@@ -8,8 +8,9 @@
 #include <QEvent>
 #include <QtWidgets>
 #include <clocale>
+#include "windowaddnewposition.h"
 
-#include "brokerdb.h"
+//#include "brokerdb.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,16 +20,15 @@ class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 
-	brokerdb* broker;
+//	brokerdb* broker;
 	int widthWindow;
 	int heightWindow;
 	QSqlRelationalTableModel* model;
 	QSqlDatabase db;
-
+	WindowAddNewPosition* NewPosition;
 
 public:
 	explicit MainWindow(QWidget *parent = 0);
-//    bool eventFilter(QObject *obj, QEvent *ev);
 	bool createConnection();
 	void configViewTable();
 	void setMainWindow(QWidget* mainWidget);
@@ -43,9 +43,7 @@ public:
 
 public slots:
 
-	//void slotTechWork();
-	void WiredScanner();
-	void WirelessScanner();
+	void AddNewPosition();
 	void slotRefreshTable();
 
 private:

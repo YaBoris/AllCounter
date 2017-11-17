@@ -3,45 +3,17 @@
 
 #include "QString"
 //#include <Qvector>
-//#include "addcharger.h"
-//#include "addcompcase.h"
-//#include "addhoover.h"
-//#include "addkeyboard.h"
-//#include "addmonitor.h"
-//#include "addmouse.h"
-//#include "addnotebook.h"
-//#include "addphone.h"
-//#include "addphoto.h"
-//#include "addprintera4.h"
-//#include "addprinterzebra.h"
-//#include "addswitch.h"
-//#include "addtsd.h"
-//#include "addwifi.h"
-#include "addwirelescan.h"
-#include "addwiredscanner.h"
+#include "workwithdevice.h"
 
 class brokerdb : public QObject
 {
 	Q_OBJECT
 
-//	addcharger* charger;
-//	addcompcase* compcase;
-//	addhoover* hoover;
-//	addkeyboard* keyboard;
-//	addmonitor* monitor;
-//	addmouse* mouse;
-//	addnotebook* notebook;
-//	addphone* phone;
-//	addphoto* photo;
-//	addprintera4* printera4;
-//	addprinterzebra* printerzebra;
-//	addswitch* switch_;
-//	addtsd* tsd;
-//	addwifi* wifi;
-	addwirelescan* wirelescan;
-	addwiredscanner* wiredscanner;
+	workwithdevice* WorkingDevice;
 	int td;
 	QSqlDatabase db;
+
+	void GetContentToWindowOfDevice(int typedevice);
 
 	//список принимаемых из окон добавления устройств всех параметров устройств
 	int sumIndexTypeDevice;
@@ -77,6 +49,7 @@ public:
 	brokerdb();
 	~brokerdb();
 	bool createConnection();
+
 
 
 public slots:

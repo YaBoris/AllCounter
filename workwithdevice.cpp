@@ -1,9 +1,9 @@
-#include "addwiredscanner.h"
-#include "ui_addwiredscanner.h"
+#include "workwithdevice.h"
+#include "ui_workwithdevice.h"
 
-addwiredscanner::addwiredscanner(QWidget *parent) :
+workwithdevice::workwithdevice(QWidget *parent) :
 	QDialog(parent),
-	ui(new Ui::addwiredscanner)
+	ui(new Ui::workwithdevice)
 {
 	ui->setupUi(this);
 	this->setModal(true);
@@ -26,28 +26,29 @@ addwiredscanner::addwiredscanner(QWidget *parent) :
 	cleanAllItems();
 }
 
-void addwiredscanner::setWindowView()
+void workwithdevice::setWindowView()
 {
+
 	this->setWindowTitle("Добавление проводного сканера");
 }
 
-addwiredscanner::~addwiredscanner()
+workwithdevice::~workwithdevice()
 {
 	delete ui;
 }
 
-void addwiredscanner::addStringToStringList(QString stringItem)
+void workwithdevice::addStringToStringList(QString stringItem)
 {
 	lst << stringItem;
 }
 
-void addwiredscanner::clearStringList()
+void workwithdevice::clearStringList()
 {
 	lst.clear();
 }
 
 //добавление списка в выпадающие списки. параметр указывает на конкретный список
-void addwiredscanner::SetListIntoItem(int NumberItem)
+void workwithdevice::SetListIntoItem(int NumberItem)
 {
 	switch (NumberItem)
 	{
@@ -85,7 +86,7 @@ void addwiredscanner::SetListIntoItem(int NumberItem)
 	}
 }
 
-bool addwiredscanner::controlEnteredData()
+bool workwithdevice::controlEnteredData()
 {
 	//переменная checkResult должна быть равна 0, когда все поля корректно заполнены
 	checkResult = 0;
@@ -160,7 +161,7 @@ bool addwiredscanner::controlEnteredData()
 	return checkResult;
 }
 
-void addwiredscanner::cleanAllItems()
+void workwithdevice::cleanAllItems()
 {
 	ui->addNameDevice->clear();
 	ui->addCoworker->clear();
@@ -197,7 +198,7 @@ void addwiredscanner::cleanAllItems()
 }
 
 //SLOTS
-void addwiredscanner::on_addNoSerial_clicked(bool state)
+void workwithdevice::on_addNoSerial_clicked(bool state)
 {
 	if(state)
 	{
@@ -212,7 +213,7 @@ void addwiredscanner::on_addNoSerial_clicked(bool state)
 	}
 }
 
-void addwiredscanner::on_pushButtonSave_clicked()
+void workwithdevice::on_pushButtonSave_clicked()
 {
 	if (controlEnteredData())
 	{
@@ -241,13 +242,13 @@ void addwiredscanner::on_pushButtonSave_clicked()
 	}
 }
 
-void addwiredscanner::on_pushButtonCancel_clicked()
+void workwithdevice::on_pushButtonCancel_clicked()
 {
 	cleanAllItems();
 	reject();
 }
 
-void addwiredscanner::on_addNoteDevice_textChanged()
+void workwithdevice::on_addNoteDevice_textChanged()
 {
 	const int countDown = 150;
 	NoteString = ui->addNoteDevice->toPlainText();
@@ -273,7 +274,7 @@ void addwiredscanner::on_addNoteDevice_textChanged()
 	prevNoteString = NoteString;
 }
 
-void addwiredscanner::on_addSerial_textEdited(const QString &arg1)
+void workwithdevice::on_addSerial_textEdited(const QString &arg1)
 {
 	SerialString = arg1;
 	const int countDown = 40;
@@ -301,7 +302,7 @@ void addwiredscanner::on_addSerial_textEdited(const QString &arg1)
 	prevSerialString = SerialString;
 }
 
-void addwiredscanner::on_pushAddAndContinue_clicked()
+void workwithdevice::on_pushAddAndContinue_clicked()
 {
 	DataAboutDevice.typeDevice = 1;
 

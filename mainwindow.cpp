@@ -9,7 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 	QWidget* mainWidget = new QWidget();
 	mainWidget->setParent(this);
-	brokerdb* broker = new brokerdb;
+//	brokerdb* broker = new brokerdb;
+
+	//старая общая таблица
+{
 	headers = QStringList() << trUtf8("id")
 							<< trUtf8("Тип устройства")
 							<< trUtf8("Название устройства")
@@ -35,15 +38,15 @@ MainWindow::MainWindow(QWidget *parent) :
 							<< trUtf8("Версия ОС")
 							<< trUtf8("Примечание")
 							<< trUtf8("Дата изменения");
+}
 
+//	QObject::connect(this, SIGNAL(workInDB(int)), broker, SLOT(GetDataFromDB(int)));
+//	QObject::connect(broker, SIGNAL(refreshTable()), SLOT(slotRefreshTable()));
 
-	QObject::connect(this, SIGNAL(workInDB(int)), broker, SLOT(RecieverInDB(int)));
-	QObject::connect(broker, SIGNAL(refreshTable()), SLOT(slotRefreshTable()));
-
-	if (!broker->createConnection())
-	{
-		qDebug() << "message: " << db.lastError();
-	}
+//	if (!broker->createConnection())
+//	{
+//		qDebug() << "message: " << db.lastError();
+//	}
 	model = new QSqlRelationalTableModel(this);
 
 	this->configViewTable();
@@ -58,14 +61,10 @@ MainWindow::~MainWindow()
 	delete ui;
 }
 
-void MainWindow::WiredScanner()
+void MainWindow::AddNewPosition()
 {
-	emit workInDB(1);
-}
-
-void MainWindow::WirelessScanner()
-{
-	emit workInDB(2);
+	NewPosition = new WindowAddNewPosition;
+//	emit workInDB(1);
 }
 
 void MainWindow::configViewTable()
@@ -126,27 +125,29 @@ void MainWindow::setMainWindow(QWidget *mainWidget)
 	//создаем меню программы и добавляем его в готовый виджет меню формы
 	QMenu* pMnuFile = new QMenu("&Menu");
 //	pMnuFile->addAction("&About AllCounter", mainWidget, SLOT(AboutAllCounter()), Qt::CTRL+Qt::Key_Q);
-	QAction* pChekableAction = pMnuFile->addAction("&CheckableItem");
-	pChekableAction->setCheckable(true);
-	pChekableAction->setChecked(true);
+//	QAction* pChekableAction = pMnuFile->addAction("&CheckableItem");
+//	pChekableAction->setCheckable(true);
+//	pChekableAction->setChecked(true);
 
-	QMenu* pMnuSubMenu = new QMenu("&Submenu", pMnuFile);
-	pMnuFile->addMenu(pMnuSubMenu);
-	pMnuSubMenu->addAction("&Test");
-	QAction* pDisabledAction = pMnuFile->addAction("&DisabledItem");
-	pDisabledAction->setEnabled(false);
+//	QMenu* pMnuSubMenu = new QMenu("&Submenu", pMnuFile);
+//	pMnuFile->addMenu(pMnuSubMenu);
+//	pMnuSubMenu->addAction("&Test");
+//	QAction* pDisabledAction = pMnuFile->addAction("&DisabledItem");
+//	pDisabledAction->setEnabled(false);
 //	pMnuFile->addAction("&Exit", mainWidget, SLOT(quit()));
 
-	QMenu* pMnuNewDevice = new QMenu("&Добавить устройство");
-	pMnuNewDevice->addAction("&Проводной сканер", this, SLOT(WiredScanner()));
-	pMnuNewDevice->addAction("&Беспроводной сканер", this, SLOT(WirelessScanner()));
-
+	QMenu* pMnuAddNewOptions = new QMenu("&Работа с БД");
+	pMnuAddNewOptions->addAction("&Добавить новую позицию в БД", this, SLOT(AddNewPosition()));
+//	pMnuAddNewOptions->addAction("&Добавить новое название устройства", this, SLOT(AddNewNameDevice()));
+//	pMnuAddNewOptions->addAction("&Добавить новую характеристику устройства", this, SLOT(AddNewFeature()));
 
 	ui->mnuBar->addMenu(pMnuFile);
-	ui->mnuBar->addMenu(pMnuNewDevice);
+	ui->mnuBar->addMenu(pMnuAddNewOptions);
 	ui->mnuBar->show();
 
 	//создаем панель инструментов
+{
+
 	QAction* pActWork = new QAction("Техника в работе", 0);
 	pActWork->setText("&Техника в работе");
 //    pActWork->setShortcut(QKeySequence("CTRL+W"));
@@ -194,6 +195,7 @@ void MainWindow::setMainWindow(QWidget *mainWidget)
 	ui->ToolBarBase->addAction(pActOrder);
 //	ui->ToolBarBase->addAction(pActBD);
 	ui->ToolBarBase->setIconSize(QSize(50, 50));
+}
 
 	QHBoxLayout* pHorBoxLayout = new QHBoxLayout;
 	pHorBoxLayout->setMargin(2);
@@ -230,7 +232,7 @@ void MainWindow::slotRefreshTable()
 {
 //	delete model;
 	model->clear();
-	this->configViewTable();
+//	this->configViewTable();
 }
 
 //bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
