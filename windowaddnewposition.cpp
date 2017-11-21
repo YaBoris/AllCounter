@@ -6,64 +6,92 @@ WindowAddNewPosition::WindowAddNewPosition(QWidget *parent) :
 	ui(new Ui::WindowAddNewPosition)
 {
 	ui->setupUi(this);
-	ListOfTypesDevices = new QLabel;
-	ListOfNamesDevices = new QLabel;
-	ListOfFeatureDevices = new QLabel;
+	TitleOfTypesDevices = new QLabel;
+	TitleOfNamesDevices = new QLabel;
+	TitleOfStatusDevices = new QLabel;
+
 	BoxOfTypesDevices = new QComboBox;
 	BoxOfNamesDevices = new QComboBox;
-	BoxOfFeatureDevices = new QComboBox;
+	BoxOfStatusDevices = new QComboBox;
 
 	NewTypeDeviceLine = new QLineEdit;
 	NewNameDeviceLine = new QLineEdit;
-	NewFeatureOfDeviceLine = new QLineEdit;
+	NewStatusOfDeviceLine = new QLineEdit;
 
 	OkButton = new QPushButton;
 	CancelButton = new QPushButton;
-	SetFeaturesOfDevices = new QPushButton;
-	NextAddNameDevice = new QPushButton;
-	NextAddTypeDevice = new QPushButton;
+	SetFeaturesOfDevicesButton = new QPushButton;
+	NextAddNameDeviceButton = new QPushButton;
+	NextAddTypeDeviceButton = new QPushButton;
+	AddStatusButton = new QPushButton;
 
-	ListOfTypesDevices->setText("Выберите тип устройства");
-	ListOfNamesDevices->setText("Выберите название устройства");
-	ListOfFeatureDevices->setText("Выберите набор характеристик для этого типа устройств");
+//	NextAddNameDeviceButton->resize(50, 1);
+//	NextAddTypeDeviceButton->resize(2, 1);
+//	AddStatusButton->resize(2, 1);
+
+	TitleOfTypesDevices->setText("Выберите тип устройства");
+	TitleOfNamesDevices->setText("Выберите название устройства");
+	TitleOfStatusDevices->setText("Выберите статус устройства");
 
 	vertBoxLayout = new QVBoxLayout;
-	horBoxLayout = new QHBoxLayout;
+	horBoxLayoutBottomButtons = new QHBoxLayout;
+	horBoxLayoutAddName = new QHBoxLayout;
+	horBoxLayoutAddType = new QHBoxLayout;
+	horBoxLayoutAddStatus = new QHBoxLayout;
 
 	OkButton->setText("Oк");
 	CancelButton->setText("Отмена");
-	NextAddNameDevice->setText("Создать устройство");
-	NextAddTypeDevice->setText("Создать тип");
-	SetFeaturesOfDevices->setText("Определить характеристики");
+	NextAddNameDeviceButton->setText("Создать устройство >>");
+	NextAddTypeDeviceButton->setText("Создать тип >>");
+	AddStatusButton->setText("Создать новый статус >>");
+	SetFeaturesOfDevicesButton->setText("Назначить характеристики...");
 	OkButton->baseSize();
 	CancelButton->baseSize();
-	SetFeaturesOfDevices->baseSize();
-	NextAddNameDevice->baseSize();
-	NextAddTypeDevice->baseSize();
+	SetFeaturesOfDevicesButton->baseSize();
 
-	horBoxLayout->addWidget(SetFeaturesOfDevices);
-	horBoxLayout->addWidget(OkButton);
-	horBoxLayout->addWidget(CancelButton);
-	horBoxLayout->setSpacing(25);
-	horBoxLayout->setAlignment(Qt::AlignRight);
-	horBoxLayout->setContentsMargins(20, 40, 10, 10);
+	NextAddNameDeviceButton->setFixedWidth(150);
+	AddStatusButton->setFixedWidth(150);
+	NextAddTypeDeviceButton->setFixedWidth(150);
 
-	vertBoxLayout->setMargin(20);
-	vertBoxLayout->addWidget(ListOfTypesDevices);
+	horBoxLayoutBottomButtons->addWidget(SetFeaturesOfDevicesButton);
+	horBoxLayoutBottomButtons->addWidget(OkButton);
+	horBoxLayoutBottomButtons->addWidget(CancelButton);
+	horBoxLayoutBottomButtons->setAlignment(Qt::AlignRight);
+	horBoxLayoutBottomButtons->setContentsMargins(20, 40, 10, 10);
+
+	vertBoxLayout->setContentsMargins(30, 20, 30, 20);
+	vertBoxLayout->addWidget(TitleOfTypesDevices);
 	vertBoxLayout->addWidget(BoxOfTypesDevices);
-	vertBoxLayout->addWidget(NewTypeDeviceLine);
-	vertBoxLayout->addWidget(NextAddTypeDevice);
-	vertBoxLayout->addStretch(2);
-	vertBoxLayout->addWidget(ListOfNamesDevices);
+	horBoxLayoutAddType->addWidget(NewTypeDeviceLine);
+	horBoxLayoutAddType->addWidget(NextAddTypeDeviceButton);
+	vertBoxLayout->addItem(horBoxLayoutAddType);
+
+	vertBoxLayout->addStretch(1);
+	vertBoxLayout->addWidget(TitleOfNamesDevices);
 	vertBoxLayout->addWidget(BoxOfNamesDevices);
-	vertBoxLayout->addWidget(NewNameDeviceLine);
-	vertBoxLayout->addWidget(NextAddNameDevice);
-	vertBoxLayout->addStretch(6);
-	vertBoxLayout->addLayout(horBoxLayout);
-//	vertBoxLayout->setSpacing(15);
+	horBoxLayoutAddName->addWidget(NewNameDeviceLine);
+	horBoxLayoutAddName->addWidget(NextAddNameDeviceButton);
+	vertBoxLayout->addItem(horBoxLayoutAddName);
+
+	vertBoxLayout->addStretch(1);
+	vertBoxLayout->addWidget(TitleOfStatusDevices);
+	vertBoxLayout->addWidget(BoxOfStatusDevices);
+	horBoxLayoutAddStatus->addWidget(NewStatusOfDeviceLine);
+	horBoxLayoutAddStatus->addWidget(AddStatusButton);
+	vertBoxLayout->addItem(horBoxLayoutAddStatus);
+
+	vertBoxLayout->addStretch(2);
+	vertBoxLayout->addLayout(horBoxLayoutBottomButtons);
 
 	this->setLayout(vertBoxLayout);
 	this->show();
+
+	connect(WindowAddNewPosition::NextAddTypeDeviceButton, SIGNAL(released()), this, SLOT(AddFeaturesToNewTypeInNewWindow()));
+	connect(WindowAddNewPosition::NextAddNameDeviceButton, SIGNAL(released()), this, SLOT(AddNewNameInNewWindow()));
+	connect(WindowAddNewPosition::AddStatusButton, SIGNAL(released()), this, SLOT(AddNewStatusSlot()));
+	connect(WindowAddNewPosition::SetFeaturesOfDevicesButton, SIGNAL(released()), this, SLOT(SetFeaturesForExistNameSlot()));
+	connect(WindowAddNewPosition::OkButton, SIGNAL(released()), this, SLOT(OkSlot()));
+	connect(WindowAddNewPosition::CancelButton, SIGNAL(released()), this, SLOT(CancelSlot()));
 }
 
 WindowAddNewPosition::~WindowAddNewPosition()
@@ -71,3 +99,33 @@ WindowAddNewPosition::~WindowAddNewPosition()
 	delete ui;
 }
 
+
+void WindowAddNewPosition::AddFeaturesToNewTypeInNewWindow()
+{
+	FeaturesTableForNewType = new WindowSetFeaturesForNewTypeDevice;
+}
+
+void WindowAddNewPosition::AddNewNameInNewWindow()
+{
+	qDebug() << "TEST2";
+}
+
+void WindowAddNewPosition::AddNewStatusSlot()
+{
+	qDebug() << "TEST3";
+}
+
+void WindowAddNewPosition::SetFeaturesForExistNameSlot()
+{
+	qDebug() << "TEST4";
+}
+
+void WindowAddNewPosition::OkSlot()
+{
+	qDebug() << "TEST5";
+}
+
+void WindowAddNewPosition::CancelSlot()
+{
+	qDebug() << "TEST6";
+}

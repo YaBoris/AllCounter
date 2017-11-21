@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>WindowAddNewPosition</class>
- <widget class="QDialog" name="WindowAddNewPosition">
+ <class>WindowSetFeaturesForNewTypeDevice</class>
+ <widget class="QDialog" name="WindowSetFeaturesForNewTypeDevice">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Список характеристик</string>
   </property>
  </widget>
  <resources/>

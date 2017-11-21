@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include <QtWidgets>
+#include <QDebug>
+
+
+#include "windowsetfeaturesfornewtypedevice.h"
 
 namespace Ui {
 class WindowAddNewPosition;
@@ -19,24 +23,40 @@ public:
 private:
 	Ui::WindowAddNewPosition *ui;
 	QVBoxLayout* vertBoxLayout;
-	QHBoxLayout* horBoxLayout;
-	QLabel* ListOfTypesDevices;
-	QLabel* ListOfNamesDevices;
-	QLabel* ListOfFeatureDevices;
+	QHBoxLayout* horBoxLayoutBottomButtons;
+	QHBoxLayout* horBoxLayoutAddType;
+	QHBoxLayout* horBoxLayoutAddName;
+	QHBoxLayout* horBoxLayoutAddStatus;
+
+	QLabel* TitleOfTypesDevices;
+	QLabel* TitleOfNamesDevices;
+	QLabel* TitleOfStatusDevices;
 
 	QComboBox* BoxOfTypesDevices;
 	QComboBox* BoxOfNamesDevices;
-	QComboBox* BoxOfFeatureDevices;
+	QComboBox* BoxOfStatusDevices;
 
 	QPushButton* OkButton;
 	QPushButton* CancelButton;
-	QPushButton* SetFeaturesOfDevices;
-	QPushButton* NextAddTypeDevice;
-	QPushButton* NextAddNameDevice;
+	QPushButton* SetFeaturesOfDevicesButton;
+	QPushButton* NextAddTypeDeviceButton;
+	QPushButton* NextAddNameDeviceButton;
+	QPushButton* AddStatusButton;
 
 	QLineEdit* NewTypeDeviceLine;
 	QLineEdit* NewNameDeviceLine;
-	QLineEdit* NewFeatureOfDeviceLine;
+	QLineEdit* NewStatusOfDeviceLine;
+
+	WindowSetFeaturesForNewTypeDevice* FeaturesTableForNewType;
+
+private slots:
+	void AddFeaturesToNewTypeInNewWindow();
+	void AddNewNameInNewWindow();
+	void AddNewStatusSlot();
+	void SetFeaturesForExistNameSlot();
+	void OkSlot();
+	void CancelSlot();
+
 };
 
 #endif // WINDOWADDNEWPOSITION_H

@@ -137,7 +137,9 @@ void MainWindow::setMainWindow(QWidget *mainWidget)
 //	pMnuFile->addAction("&Exit", mainWidget, SLOT(quit()));
 
 	QMenu* pMnuAddNewOptions = new QMenu("&Работа с БД");
-	pMnuAddNewOptions->addAction("&Добавить новую позицию в БД", this, SLOT(AddNewPosition()));
+	pMnuAddNewOptions->addAction("&Работа с устройствами", this, SLOT(AddNewPosition()));
+	pMnuAddNewOptions->addAction("&Работа со списком сотрудников", this, SLOT(WorkWithCoworker()));
+
 //	pMnuAddNewOptions->addAction("&Добавить новое название устройства", this, SLOT(AddNewNameDevice()));
 //	pMnuAddNewOptions->addAction("&Добавить новую характеристику устройства", this, SLOT(AddNewFeature()));
 
