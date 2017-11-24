@@ -13,7 +13,7 @@ WindowSetFeaturesForNewTypeDevice::WindowSetFeaturesForNewTypeDevice(QWidget *pa
 	CancelButton = new QPushButton;
 	titleOfFeatureTable = new QLabel;
 	titleOfFeatureTable->setText("Список характеристик");
-	addFeatureSetToTypeButton->setText("Ok");
+	addFeatureSetToTypeButton->setText("Добавить");
 	createNewFeatureButton->setText("Создать новую хар-ку >>");
 	CancelButton->setText("Отмена");
 
@@ -38,6 +38,15 @@ WindowSetFeaturesForNewTypeDevice::WindowSetFeaturesForNewTypeDevice(QWidget *pa
 
 WindowSetFeaturesForNewTypeDevice::~WindowSetFeaturesForNewTypeDevice()
 {
+	delete tableOfFeatures;
+	delete createNewFeatureButton;
+	delete addFeatureSetToTypeButton;
+	delete CancelButton;
+	delete titleOfFeatureTable;
+	delete vertBoxLayout;
+	delete horBoxLayout;
+	delete newFeatureToFeatureList;
+
 	delete ui;
 }
 

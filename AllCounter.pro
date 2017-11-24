@@ -16,7 +16,8 @@ SOURCES += main.cpp\
 	mainwindow.cpp \
     windowaddnewposition.cpp \
     windowsetfeaturesfornewtypedevice.cpp \
-    windowaddnewfeaturetofeaturelist.cpp
+    windowaddnewfeaturetofeaturelist.cpp \
+    windowselectfeaturevalues.cpp
 #	brokerdb.cpp \
 #	control_rec.cpp \
 #	workwithdevice.cpp
@@ -24,7 +25,8 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     windowaddnewposition.h \
     windowsetfeaturesfornewtypedevice.h \
-    windowaddnewfeaturetofeaturelist.h
+    windowaddnewfeaturetofeaturelist.h \
+    windowselectfeaturevalues.h
 #	brokerdb.h \
 #	control_rec.h \
 #	workwithdevice.h
@@ -32,7 +34,8 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     windowaddnewposition.ui \
     windowsetfeaturesfornewtypedevice.ui \
-    windowaddnewfeaturetofeaturelist.ui
+    windowaddnewfeaturetofeaturelist.ui \
+    windowselectfeaturevalues.ui
 #	workwithdevice.ui
 
 RESOURCES += \

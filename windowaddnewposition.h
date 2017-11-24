@@ -7,6 +7,7 @@
 
 
 #include "windowsetfeaturesfornewtypedevice.h"
+#include "windowselectfeaturevalues.h"
 
 namespace Ui {
 class WindowAddNewPosition;
@@ -48,6 +49,7 @@ private:
 	QLineEdit* NewStatusOfDeviceLine;
 
 	WindowSetFeaturesForNewTypeDevice* FeaturesTableForNewType;
+	windowSelectFeatureValues* SelectValuesOfFeatures;
 
 private slots:
 	void AddFeaturesToNewTypeInNewWindow();
