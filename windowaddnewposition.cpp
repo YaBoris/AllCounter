@@ -96,6 +96,28 @@ WindowAddNewPosition::WindowAddNewPosition(QWidget *parent) :
 
 WindowAddNewPosition::~WindowAddNewPosition()
 {
+	delete vertBoxLayout;
+	delete horBoxLayoutBottomButtons;
+	delete horBoxLayoutAddType;
+	delete horBoxLayoutAddName;
+	delete horBoxLayoutAddStatus;
+	delete TitleOfTypesDevices;
+	delete TitleOfNamesDevices;
+	delete TitleOfStatusDevices;
+	delete BoxOfTypesDevices;
+	delete BoxOfNamesDevices;
+	delete BoxOfStatusDevices;
+	delete OkButton;
+	delete CancelButton;
+	delete SetFeaturesOfDevicesButton;
+	delete NextAddTypeDeviceButton;
+	delete NextAddNameDeviceButton;
+	delete AddStatusButton;
+	delete NewTypeDeviceLine;
+	delete NewNameDeviceLine;
+	delete NewStatusOfDeviceLine;
+	delete FeaturesTableForNewType;
+
 	delete ui;
 }
 
@@ -107,7 +129,8 @@ void WindowAddNewPosition::AddFeaturesToNewTypeInNewWindow()
 
 void WindowAddNewPosition::AddNewNameInNewWindow()
 {
-	qDebug() << "TEST2";
+//	qDebug() << "TEST2";
+	//SelectValuesOfFeatures = new windowSelectFeatureValues;
 }
 
 void WindowAddNewPosition::AddNewStatusSlot()
@@ -117,7 +140,8 @@ void WindowAddNewPosition::AddNewStatusSlot()
 
 void WindowAddNewPosition::SetFeaturesForExistNameSlot()
 {
-	qDebug() << "TEST4";
+//	qDebug() << "TEST4";
+	SelectValuesOfFeatures = new windowSelectFeatureValues;
 }
 
 void WindowAddNewPosition::OkSlot()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddNewFeatureToFeatureList</class>
- <widget class="QDialog" name="AddNewFeatureToFeatureList">
+ <class>windowSelectFeatureValues</class>
+ <widget class="QDialog" name="windowSelectFeatureValues">
   <property name="windowModality">
    <enum>Qt::WindowModal</enum>
   </property>
@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>240</height>
+    <height>234</height>
    </rect>
   </property>
   <property name="windowTitle">

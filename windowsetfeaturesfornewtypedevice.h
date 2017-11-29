@@ -20,7 +20,6 @@ public:
 private:
 	Ui::WindowSetFeaturesForNewTypeDevice *ui;
 
-
 	QTableWidget* tableOfFeatures;
 
 	QPushButton* createNewFeatureButton;
