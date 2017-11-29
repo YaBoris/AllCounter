@@ -130,7 +130,7 @@ void WindowAddNewPosition::AddFeaturesToNewTypeInNewWindow()
 void WindowAddNewPosition::AddNewNameInNewWindow()
 {
 //	qDebug() << "TEST2";
-	SelectValuesOfFeatures = new windowSelectFeatureValues;
+	//SelectValuesOfFeatures = new windowSelectFeatureValues;
 }
 
 void WindowAddNewPosition::AddNewStatusSlot()
@@ -140,7 +140,8 @@ void WindowAddNewPosition::AddNewStatusSlot()
 
 void WindowAddNewPosition::SetFeaturesForExistNameSlot()
 {
-	qDebug() << "TEST4";
+//	qDebug() << "TEST4";
+	SelectValuesOfFeatures = new windowSelectFeatureValues;
 }
 
 void WindowAddNewPosition::OkSlot()

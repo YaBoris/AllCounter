@@ -33,6 +33,7 @@ AddNewFeatureToFeatureList::AddNewFeatureToFeatureList(QWidget *parent) :
 
 	vertBoxLayout = new QVBoxLayout;
 	vertBoxLayout->setContentsMargins(20, 15, 20, 15);
+
 	horBoxRButtonsLayout = new QHBoxLayout;
 	horBoxNewValueLineLayout = new QHBoxLayout;
 	horBoxBottomButtonLayout = new QHBoxLayout;
