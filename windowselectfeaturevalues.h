@@ -2,10 +2,10 @@
 #define WINDOWSELECTFEATUREVALUES_H
 
 #include <QDialog>
+
 #include <QtWidgets>
 #include <QVector>
 #include <QDebug>
-
 
 namespace Ui {
 class windowSelectFeatureValues;
@@ -24,12 +24,7 @@ private:
 
 	QWidget* baseWidget;
 
-	QPushButton* OkButton;
-	QPushButton* CancelButton;
 	QVBoxLayout* vertBoxLayout;
-	QHBoxLayout* horBottomButtonsBoxLayout;
-	QScrollArea* scrolling;
-
 	QVBoxLayout* vertBoxFull;
 
 	QLabel* label1;
