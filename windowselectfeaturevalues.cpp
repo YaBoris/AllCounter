@@ -7,21 +7,18 @@ windowSelectFeatureValues::windowSelectFeatureValues(QWidget *parent) :
 {
 	ui->setupUi(this);
 
-	baseWidget = new QWidget(this);
+	const int SIZE = 20;
+	unsigned int tempIndex2 = 0;
 
-	scrolling = new QScrollArea(baseWidget);
-	scrolling->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	scrolling->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-	baseWidget->resize(this->width(), this->height());
-	scrolling->resize(this->width(), this->height());
+	baseWidget = new QWidget(ui->scrollAreaWidgetContents);
+	ui->scrolling->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	ui->scrolling->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
-	vertBoxLayout = new QVBoxLayout;
-	vertBoxFull = new QVBoxLayout;
+	baseWidget->adjustSize();
+	baseWidget->setMaximumWidth(ui->scrolling->width());
+	baseWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-	OkButton = new QPushButton;
-	CancelButton = new QPushButton;
-
-	horBottomButtonsBoxLayout = new QHBoxLayout(this);
+	vertBoxLayout = new QVBoxLayout(ui->scrollAreaWidgetContents);
 
 	label1 = new QLabel;
 	label2 = new QLabel;
@@ -65,7 +62,50 @@ windowSelectFeatureValues::windowSelectFeatureValues(QWidget *parent) :
 	box19 = new QComboBox;
 	box20 = new QComboBox;
 
-	const int SIZE = 20;
+//	label1->setFixedHeight(40);
+//	label2->setFixedHeight(40);
+//	label3->setFixedHeight(40);
+//	label4->setFixedHeight(40);
+//	label5->setFixedHeight(40);
+//	label6->setFixedHeight(40);
+//	label7->setFixedHeight(40);
+//	label8->setFixedHeight(40);
+//	label9->setFixedHeight(40);
+//	label10->setFixedHeight(40);
+//	label11->setFixedHeight(40);
+//	label12->setFixedHeight(40);
+//	label13->setFixedHeight(40);
+//	label14->setFixedHeight(40);
+//	label15->setFixedHeight(40);
+//	label16->setFixedHeight(40);
+//	label17->setFixedHeight(40);
+//	label18->setFixedHeight(40);
+//	label19->setFixedHeight(40);
+//	label20->setFixedHeight(40);
+
+//	box1->setFixedHeight(40);
+//	box2->setFixedHeight(40);
+//	box3->setFixedHeight(40);
+//	box4->setFixedHeight(40);
+//	box5->setFixedHeight(40);
+//	box6->setFixedHeight(40);
+//	box7->setFixedHeight(40);
+//	box8->setFixedHeight(40);
+//	box9->setFixedHeight(40);
+//	box10->setFixedHeight(40);
+//	box11->setFixedHeight(40);
+//	box12->setFixedHeight(40);
+//	box13->setFixedHeight(40);
+//	box14->setFixedHeight(40);
+//	box15->setFixedHeight(40);
+//	box16->setFixedHeight(40);
+//	box17->setFixedHeight(40);
+//	box18->setFixedHeight(40);
+//	box19->setFixedHeight(40);
+//	box20->setFixedHeight(40);
+
+
+//	ui->scrollAreaWidgetContents->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 	struct strFeaturesSet
 	{
@@ -74,159 +114,194 @@ windowSelectFeatureValues::windowSelectFeatureValues(QWidget *parent) :
 		QStringList FeatureValuesList;
 	}FeaturesVector[SIZE];
 
-	OkButton->setText("Ok");
-	CancelButton->setText("Отмена");
+	QString tempString;
+	QString tempString2 = "NameTest";
 
 	//TEST
 	for(unsigned int tempIndex = 0; tempIndex < SIZE; tempIndex++)
 	{
-		FeaturesVector[tempIndex].FeatureNameString = "NameTest1";
+		tempString.setNum(tempIndex+1);
+		tempString2.clear();
+		tempString2 = "NameTest";
+		tempString2 += tempString;
+		FeaturesVector[tempIndex].FeatureNameString = tempString2;
 		FeaturesVector[tempIndex].FeatureValuesList << "ValueTest1" << "ValueTest2" << "ValueTest3";
 	}
 	//END TEST
 
-	for(unsigned int tempIndex2 = 0; tempIndex2 < SIZE; tempIndex2++)
+	for(tempIndex2 = 0; tempIndex2 < SIZE; tempIndex2++)
 	{
 		switch (tempIndex2)
 		{
 			case 0:
 				label1->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box1->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label1);
-				scrolling->setWidget(box1);
+//				box1->setFixedWidth(ui->scrolling->width()-30);
+				label1->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				box1->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label1);
+				vertBoxLayout->addWidget(box1);
 				break;
 			case 1:
 				label2->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box2->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label2);
-				scrolling->setWidget(box2);
+				box2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label2);
+				vertBoxLayout->addWidget(box2);
 				break;
 			case 2:
 				label3->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box3->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label3);
-				scrolling->setWidget(box3);
+				box3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label3);
+				vertBoxLayout->addWidget(box3);
 				break;
 			case 3:
 				label4->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box4->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label4);
-				scrolling->setWidget(box4);
+				box4->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label4->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label4);
+				vertBoxLayout->addWidget(box4);
 				break;
 			case 4:
 				label5->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box5->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label5);
-				scrolling->setWidget(box5);
+				box5->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label5->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label5);
+				vertBoxLayout->addWidget(box5);
 				break;
 			case 5:
 				label6->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box6->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label6);
-				scrolling->setWidget(box6);
+				box6->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label6->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label6);
+				vertBoxLayout->addWidget(box6);
 				break;
 			case 6:
 				label7->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box7->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label7);
-				scrolling->setWidget(box7);
+				box7->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label7->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label7);
+				vertBoxLayout->addWidget(box7);
 				break;
 			case 7:
 				label8->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box8->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label8);
-				scrolling->setWidget(box8);
+				box8->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label8->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label8);
+				vertBoxLayout->addWidget(box8);
 				break;
 			case 8:
 				label9->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box9->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label9);
-				scrolling->setWidget(box9);
+				box9->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label9->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label9);
+				vertBoxLayout->addWidget(box9);
 				break;
 			case 9:
 				label10->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box10->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label10);
-				scrolling->setWidget(box10);
+				box10->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label10->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label10);
+				vertBoxLayout->addWidget(box10);
 				break;
 			case 10:
 				label11->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box11->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label11);
-				scrolling->setWidget(box11);
+				box11->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label11->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label11);
+				vertBoxLayout->addWidget(box11);
 				break;
 			case 11:
 				label12->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box12->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label12);
-				scrolling->setWidget(box12);
+				box12->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label12->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label12);
+				vertBoxLayout->addWidget(box12);
 				break;
 			case 12:
 				label13->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box13->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label13);
-				scrolling->setWidget(box13);
+				box13->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label13->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label13);
+				vertBoxLayout->addWidget(box13);
 				break;
 			case 13:
 				label14->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box14->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label14);
-				scrolling->setWidget(box14);
+				box14->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label14->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label14);
+				vertBoxLayout->addWidget(box14);
 				break;
 			case 14:
 				label15->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box15->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label15);
-				scrolling->setWidget(box15);
+				box15->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label15->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label15);
+				vertBoxLayout->addWidget(box15);
 				break;
 			case 15:
 				label16->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box16->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label16);
-				scrolling->setWidget(box16);
+				box16->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label16->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label16);
+				vertBoxLayout->addWidget(box16);
 				break;
 			case 16:
 				label17->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box17->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label17);
-				scrolling->setWidget(box17);
+				box17->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label17->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label17);
+				vertBoxLayout->addWidget(box17);
 				break;
 			case 17:
 				label18->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box18->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label18);
-				scrolling->setWidget(box18);
+				box18->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label18->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label18);
+				vertBoxLayout->addWidget(box18);
 				break;
 			case 18:
 				label19->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box19->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label19);
-				scrolling->setWidget(box19);
+				box19->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label19->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label19);
+				vertBoxLayout->addWidget(box19);
 				break;
 			case 19:
 				label20->setText(FeaturesVector[tempIndex2].FeatureNameString);
 				box20->addItems(FeaturesVector[tempIndex2].FeatureValuesList);
-				scrolling->setWidget(label20);
-				scrolling->setWidget(box20);
+				box20->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				label20->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+				vertBoxLayout->addWidget(label20);
+				vertBoxLayout->addWidget(box20);
 				break;
 			default:
 				break;
 		}
-//		vertBoxLayout->addStretch(1);
 	}
 
-	horBottomButtonsBoxLayout->addWidget(OkButton);
-	horBottomButtonsBoxLayout->addWidget(CancelButton);
-	horBottomButtonsBoxLayout->setAlignment(Qt::AlignRight);
-	horBottomButtonsBoxLayout->setContentsMargins(0, 30, 20, 20);
-	horBottomButtonsBoxLayout->setSpacing(10);
+	ui->scrollAreaWidgetContents->setFixedHeight(label1->geometry().height()+box1->geometry().height());
+	ui->scrolling->resize(this->width()-40, this->height()-100);
 
-	scrolling->setLayout(vertBoxLayout);
-	vertBoxFull->addWidget(baseWidget);
-	vertBoxFull->addStretch(1);
-	vertBoxFull->addItem(horBottomButtonsBoxLayout);
-
-	this->setLayout(vertBoxFull);
 	this->show();
 }
 
@@ -273,10 +348,8 @@ windowSelectFeatureValues::~windowSelectFeatureValues()
 	delete box19;
 	delete box20;
 
-	delete OkButton;
-	delete CancelButton;
-	delete horBottomButtonsBoxLayout;
 	delete vertBoxLayout;
+
 
 	delete ui;
 }
