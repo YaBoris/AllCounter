@@ -14,28 +14,30 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
 	mainwindow.cpp \
-    windowaddnewposition.cpp \
-    windowsetfeaturesfornewtypedevice.cpp \
-    windowaddnewfeaturetofeaturelist.cpp \
-    windowselectfeaturevalues.cpp
-#	brokerdb.cpp \
+	windowaddnewposition.cpp \
+	windowsetfeaturesfornewtypedevice.cpp \
+	windowaddnewfeaturetofeaturelist.cpp \
+	windowselectfeaturevalues.cpp \
+	brokerdb.cpp \
+    control.cpp
 #	control_rec.cpp \
 #	workwithdevice.cpp
 
 HEADERS  += mainwindow.h \
-    windowaddnewposition.h \
-    windowsetfeaturesfornewtypedevice.h \
-    windowaddnewfeaturetofeaturelist.h \
-    windowselectfeaturevalues.h
-#	brokerdb.h \
+	windowaddnewposition.h \
+	windowsetfeaturesfornewtypedevice.h \
+	windowaddnewfeaturetofeaturelist.h \
+	windowselectfeaturevalues.h \
+	brokerdb.h \
+    control.h
 #	control_rec.h \
 #	workwithdevice.h
 
 FORMS    += mainwindow.ui \
-    windowaddnewposition.ui \
-    windowsetfeaturesfornewtypedevice.ui \
-    windowaddnewfeaturetofeaturelist.ui \
-    windowselectfeaturevalues.ui
+	windowaddnewposition.ui \
+	windowsetfeaturesfornewtypedevice.ui \
+	windowaddnewfeaturetofeaturelist.ui \
+	windowselectfeaturevalues.ui
 #	workwithdevice.ui
 
 RESOURCES += \

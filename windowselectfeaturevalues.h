@@ -6,6 +6,8 @@
 #include <QtWidgets>
 #include <QVector>
 #include <QDebug>
+#include <QtSql>
+#include <clocale>
 
 namespace Ui {
 class windowSelectFeatureValues;

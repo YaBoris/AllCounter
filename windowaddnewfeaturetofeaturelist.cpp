@@ -22,6 +22,7 @@ AddNewFeatureToFeatureList::AddNewFeatureToFeatureList(QWidget *parent) :
 	TextRButton = new QRadioButton;
 	DigitalRButton->setText("Цифровая");
 	TextRButton->setText("Текстовая");
+
 	newValueLine = new QLineEdit;
 
 	OkButton = new QPushButton;
@@ -67,21 +68,5 @@ AddNewFeatureToFeatureList::AddNewFeatureToFeatureList(QWidget *parent) :
 
 AddNewFeatureToFeatureList::~AddNewFeatureToFeatureList()
 {
-	delete titleNameFeature;
-	delete titleTypeFeatureDigitOrText;
-	delete titleNameOfNewFeature;
-	delete featureBox;
-	delete newFeatureLine;
-	delete DigitalRButton;
-	delete TextRButton;
-	delete newValueLine;
-	delete OkButton;
-	delete CancelButton;
-	delete addNewFeatureButton;
-	delete vertBoxLayout;
-	delete horBoxRButtonsLayout;
-	delete horBoxNewValueLineLayout;
-	delete horBoxBottomButtonLayout;
-
 	delete ui;
 }

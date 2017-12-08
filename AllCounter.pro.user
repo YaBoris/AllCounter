@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<!-- Written by QtCreator 4.2.1, 2017-12-01T15:57:27. -->
-=======
-<<<<<<< HEAD
-<!-- Written by QtCreator 4.2.1, 2017-11-21T21:07:38. -->
-=======
-<!-- Written by QtCreator 4.2.1, 2017-11-29T17:38:35. -->
->>>>>>> origin/master
->>>>>>> origin/master
+<!-- Written by QtCreator 4.2.1, 2017-12-08T16:26:39. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
-  <value type="QByteArray">{346879ed-a20f-4c21-a315-2ee4b6d445e2}</value>
+  <value type="QByteArray">{c88c7e4e-65d9-44b0-aeee-dc3357dbb9b4}</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -293,8 +285,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">AllCounter</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">AllCounter2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/__DOCS_PROJECTS/Qt/AllCounter/AllCounter.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/USER/Downloads/QtPr/AllCounter/AllCounter.pro</value>
     <value type="bool" key="QmakeProjectManager.QmakeRunConfiguration.UseLibrarySearchPath">true</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">AllCounter.pro</value>

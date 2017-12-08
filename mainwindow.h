@@ -10,7 +10,7 @@
 #include <clocale>
 #include "windowaddnewposition.h"
 
-//#include "brokerdb.h"
+#include "brokerdb.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,7 +20,7 @@ class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 
-//	brokerdb* broker;
+	brokerdb* broker;
 	int widthWindow;
 	int heightWindow;
 	QSqlRelationalTableModel* model;
@@ -42,7 +42,6 @@ public:
 	~MainWindow();
 
 public slots:
-
 	void AddNewPosition();
 	void slotRefreshTable();
 

@@ -62,49 +62,6 @@ windowSelectFeatureValues::windowSelectFeatureValues(QWidget *parent) :
 	box19 = new QComboBox;
 	box20 = new QComboBox;
 
-//	label1->setFixedHeight(40);
-//	label2->setFixedHeight(40);
-//	label3->setFixedHeight(40);
-//	label4->setFixedHeight(40);
-//	label5->setFixedHeight(40);
-//	label6->setFixedHeight(40);
-//	label7->setFixedHeight(40);
-//	label8->setFixedHeight(40);
-//	label9->setFixedHeight(40);
-//	label10->setFixedHeight(40);
-//	label11->setFixedHeight(40);
-//	label12->setFixedHeight(40);
-//	label13->setFixedHeight(40);
-//	label14->setFixedHeight(40);
-//	label15->setFixedHeight(40);
-//	label16->setFixedHeight(40);
-//	label17->setFixedHeight(40);
-//	label18->setFixedHeight(40);
-//	label19->setFixedHeight(40);
-//	label20->setFixedHeight(40);
-
-//	box1->setFixedHeight(40);
-//	box2->setFixedHeight(40);
-//	box3->setFixedHeight(40);
-//	box4->setFixedHeight(40);
-//	box5->setFixedHeight(40);
-//	box6->setFixedHeight(40);
-//	box7->setFixedHeight(40);
-//	box8->setFixedHeight(40);
-//	box9->setFixedHeight(40);
-//	box10->setFixedHeight(40);
-//	box11->setFixedHeight(40);
-//	box12->setFixedHeight(40);
-//	box13->setFixedHeight(40);
-//	box14->setFixedHeight(40);
-//	box15->setFixedHeight(40);
-//	box16->setFixedHeight(40);
-//	box17->setFixedHeight(40);
-//	box18->setFixedHeight(40);
-//	box19->setFixedHeight(40);
-//	box20->setFixedHeight(40);
-
-
 //	ui->scrollAreaWidgetContents->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 	struct strFeaturesSet
@@ -307,49 +264,5 @@ windowSelectFeatureValues::windowSelectFeatureValues(QWidget *parent) :
 
 windowSelectFeatureValues::~windowSelectFeatureValues()
 {
-	delete label1;
-	delete label2;
-	delete label3;
-	delete label4;
-	delete label5;
-	delete label6;
-	delete label7;
-	delete label8;
-	delete label9;
-	delete label10;
-	delete label11;
-	delete label12;
-	delete label13;
-	delete label14;
-	delete label15;
-	delete label16;
-	delete label17;
-	delete label18;
-	delete label19;
-	delete label20;
-	delete box1;
-	delete box2;
-	delete box3;
-	delete box4;
-	delete box5;
-	delete box6;
-	delete box7;
-	delete box8;
-	delete box9;
-	delete box10;
-	delete box11;
-	delete box12;
-	delete box13;
-	delete box14;
-	delete box15;
-	delete box16;
-	delete box17;
-	delete box18;
-	delete box19;
-	delete box20;
-
-	delete vertBoxLayout;
-
-
 	delete ui;
 }

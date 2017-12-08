@@ -4,16 +4,17 @@
 #include "QString"
 //#include <Qvector>
 #include "workwithdevice.h"
+#include <QObject>
 
 class brokerdb : public QObject
 {
 	Q_OBJECT
 
-	workwithdevice* WorkingDevice;
+//	workwithdevice* WorkingDevice;
 	int td;
 	QSqlDatabase db;
 
-	void GetContentToWindowOfDevice(int typedevice);
+//	void GetContentToWindowOfDevice(int typedevice);
 
 	//список принимаемых из окон добавления устройств всех параметров устройств
 	int sumIndexTypeDevice;
@@ -42,6 +43,15 @@ class brokerdb : public QObject
 	QString strF;
 	QString str;
 
+	//длина табличных полей, которые будут заполняться, нужно для контроля ввода
+	int lengthNameDevice;
+	int lenghtTypeDevice;
+	int lenghtStatus;
+	int lenghtAllNameCoworker;
+	int lenghtEmail;
+	int lenghtSubdivision;
+	int lenghtSerialNumber;
+
 
 //	QSqlQuery query2;
 
@@ -49,18 +59,35 @@ public:
 	brokerdb();
 	~brokerdb();
 	bool createConnection();
-
-
+	int getLengthNameDevice();
+	int getLenghtTypeDevice();
+	int getLenghtStatus();
+	int getLenghtAllNameCoworker();
+	int getLenghtEmail();
+	int getLenghtSubdivision();
+	int getLenghtSerialNumber();
 
 public slots:
-	bool RecieverInDB(int typedevice);
+	int getTypeFromDB();
+	int getNameFromDB();
+	int getStatusFromDB();
+
+//	bool insertNewTypeToDB();
+//	bool insertNewNameToDB();
+//	bool insertNewFeatureToDB();
 
 private slots:
-	void  slotAddDataAboutNewDevice(int typedevice);
+//	void  slotAddDataAboutNewDevice(int typedevice);
+
 
 signals:
-	refreshTable();
-	ClearAllItems();
+	void pushQueryTypeDevice(QSqlQuery);
+	void pushQueryNameDevice(QSqlQuery);
+	void pushQueryStatusDevice(QSqlQuery);
+
+//	OLD
+//	refreshTable();
+//	ClearAllItems();
 
 };
 

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QtWidgets>
+#include <QtSql>
+#include <clocale>
 #include "windowaddnewfeaturetofeaturelist.h"
 
 namespace Ui {
@@ -14,11 +16,13 @@ class WindowSetFeaturesForNewTypeDevice : public QDialog
 	Q_OBJECT
 
 public:
-	explicit WindowSetFeaturesForNewTypeDevice(QWidget *parent = 0);
+	explicit WindowSetFeaturesForNewTypeDevice(QString newTypeName, QWidget *parent = 0);
 	~WindowSetFeaturesForNewTypeDevice();
 
 private:
 	Ui::WindowSetFeaturesForNewTypeDevice *ui;
+
+	QLabel* titleTypeName;
 
 	QTableWidget* tableOfFeatures;
 

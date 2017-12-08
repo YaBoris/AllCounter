@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 	QWidget* mainWidget = new QWidget();
 	mainWidget->setParent(this);
-//	brokerdb* broker = new brokerdb;
+	broker = new brokerdb;
 
 	//старая общая таблица
 {
@@ -43,80 +43,78 @@ MainWindow::MainWindow(QWidget *parent) :
 //	QObject::connect(this, SIGNAL(workInDB(int)), broker, SLOT(GetDataFromDB(int)));
 //	QObject::connect(broker, SIGNAL(refreshTable()), SLOT(slotRefreshTable()));
 
-//	if (!broker->createConnection())
-//	{
-//		qDebug() << "message: " << db.lastError();
-//	}
-	model = new QSqlRelationalTableModel(this);
+	if (!broker->createConnection())
+	{
+		qDebug() << "message: " << db.lastError();
+	}
+//	model = new QSqlRelationalTableModel(this);
 
-	this->configViewTable();
+//	this->configViewTable();
 	this->setMainWindow(mainWidget);
 	this->show();
 }
 
 MainWindow::~MainWindow()
 {
-	//delete broker;
 	db.close();
 	delete ui;
 }
 
 void MainWindow::AddNewPosition()
 {
-	NewPosition = new WindowAddNewPosition;
-//	emit workInDB(1);
+	NewPosition = new WindowAddNewPosition(broker);
 }
 
 void MainWindow::configViewTable()
 {
-	ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-	ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-	// Устанавливаем режим выделения лишь одной строки в таблице
-	ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
-	// Устанавливаем размер колонок по содержимому
-	ui->tableView->resizeColumnsToContents();
-	ui->tableView->horizontalHeader()->setStretchLastSection(true);
+//	ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+//	ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+//	// Устанавливаем режим выделения лишь одной строки в таблице
+//	ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+//	// Устанавливаем размер колонок по содержимому
+//	ui->tableView->resizeColumnsToContents();
+//	ui->tableView->horizontalHeader()->setStretchLastSection(true);
 
-	model->setTable("summary");
-	model->setRelation(1, QSqlRelation("typedevice", "id", "typedevice"));
-	model->setRelation(2, QSqlRelation("namedevice", "id", "namedevice"));
-	model->setRelation(4, QSqlRelation("status", "id", "status"));
-	model->setRelation(5, QSqlRelation("license", "id", "license"));
-	model->setRelation(6, QSqlRelation("coworker", "id", "surname"));
-	model->setRelation(7, QSqlRelation("subdivision", "id", "subdivision"));
-	model->setRelation(8, QSqlRelation("subdivision", "id", "subdivision"));
-	model->setRelation(9, QSqlRelation("new_old", "id", "new_old"));
-	model->setRelation(10, QSqlRelation("guarantee", "id", "guarantee"));
-	model->setRelation(11, QSqlRelation("type_contact", "id", "type_contact"));
-	model->setRelation(12, QSqlRelation("ethernet_count", "id", "ethernet_count"));
-	model->setRelation(13, QSqlRelation("type_cartridge", "id", "type_cartridge"));
-	model->setRelation(14, QSqlRelation("type_contact", "id", "type_contact"));
-	model->setRelation(15, QSqlRelation("diagonal", "id", "diagonal"));
-	model->setRelation(16, QSqlRelation("video_in", "id", "video_in"));
-	model->setRelation(17, QSqlRelation("usb_count", "id", "usb_count"));
-	model->setRelation(18, QSqlRelation("type_phone", "id", "type_phone"));
-	model->setRelation(19, QSqlRelation("type_wifi", "id", "type_wifi"));
-	model->setRelation(20, QSqlRelation("accum_count", "id", "accum_count"));
-	model->setRelation(21, QSqlRelation("accum_type", "id", "accum_type"));
-	model->setRelation(22, QSqlRelation("os_version", "id", "os_version"));
+//	model->setTable("summary");
+//	model->setRelation(1, QSqlRelation("typedevice", "id", "typedevice"));
+//	model->setRelation(2, QSqlRelation("namedevice", "id", "namedevice"));
+//	model->setRelation(4, QSqlRelation("status", "id", "status"));
+//	model->setRelation(5, QSqlRelation("license", "id", "license"));
+//	model->setRelation(6, QSqlRelation("coworker", "id", "surname"));
+//	model->setRelation(7, QSqlRelation("subdivision", "id", "subdivision"));
+//	model->setRelation(8, QSqlRelation("subdivision", "id", "subdivision"));
+//	model->setRelation(9, QSqlRelation("new_old", "id", "new_old"));
+//	model->setRelation(10, QSqlRelation("guarantee", "id", "guarantee"));
+//	model->setRelation(11, QSqlRelation("type_contact", "id", "type_contact"));
+//	model->setRelation(12, QSqlRelation("ethernet_count", "id", "ethernet_count"));
+//	model->setRelation(13, QSqlRelation("type_cartridge", "id", "type_cartridge"));
+//	model->setRelation(14, QSqlRelation("type_contact", "id", "type_contact"));
+//	model->setRelation(15, QSqlRelation("diagonal", "id", "diagonal"));
+//	model->setRelation(16, QSqlRelation("video_in", "id", "video_in"));
+//	model->setRelation(17, QSqlRelation("usb_count", "id", "usb_count"));
+//	model->setRelation(18, QSqlRelation("type_phone", "id", "type_phone"));
+//	model->setRelation(19, QSqlRelation("type_wifi", "id", "type_wifi"));
+//	model->setRelation(20, QSqlRelation("accum_count", "id", "accum_count"));
+//	model->setRelation(21, QSqlRelation("accum_type", "id", "accum_type"));
+//	model->setRelation(22, QSqlRelation("os_version", "id", "os_version"));
 
-	//по умолчанию сортировка по ID
-	model->setSort(0,Qt::AscendingOrder);
-	if (!model->select())
-	{
-		qDebug() << "Cannot read table \"summary\":" << db.lastError();
-	}
-	ui->tableView->setModel(model);
+//	//по умолчанию сортировка по ID
+//	model->setSort(0,Qt::AscendingOrder);
+//	if (!model->select())
+//	{
+//		qDebug() << "Cannot read table \"summary\":" << db.lastError();
+//	}
+//	ui->tableView->setModel(model);
 
-//	qDebug() << "General read error:" << db.lastError();
+////	qDebug() << "General read error:" << db.lastError();
 
-	for(int i = 0, j = 0; i < model->columnCount(); i++, j++)
-	{
-		model->setHeaderData(i, Qt::Horizontal, headers[i]);
-	}
-	ui->tableView->show();
-	ui->tableView->setColumnHidden(0, true); //скрываем ID
-	ui->tableView->setColumnHidden(21, true);//скрываем дату и время создания записи
+//	for(int i = 0, j = 0; i < model->columnCount(); i++, j++)
+//	{
+//		model->setHeaderData(i, Qt::Horizontal, headers[i]);
+//	}
+//	ui->tableView->show();
+//	ui->tableView->setColumnHidden(0, true); //скрываем ID
+//	ui->tableView->setColumnHidden(21, true);//скрываем дату и время создания записи
 
 }
 
@@ -138,10 +136,7 @@ void MainWindow::setMainWindow(QWidget *mainWidget)
 
 	QMenu* pMnuAddNewOptions = new QMenu("&Работа с БД");
 	pMnuAddNewOptions->addAction("&Работа с устройствами", this, SLOT(AddNewPosition()));
-	pMnuAddNewOptions->addAction("&Работа со списком сотрудников", this, SLOT(WorkWithCoworker()));
-
-//	pMnuAddNewOptions->addAction("&Добавить новое название устройства", this, SLOT(AddNewNameDevice()));
-//	pMnuAddNewOptions->addAction("&Добавить новую характеристику устройства", this, SLOT(AddNewFeature()));
+//	pMnuAddNewOptions->addAction("&Работа со списком сотрудников", this, SLOT(WorkWithCoworker()));
 
 	ui->mnuBar->addMenu(pMnuFile);
 	ui->mnuBar->addMenu(pMnuAddNewOptions);
@@ -223,8 +218,8 @@ void MainWindow::setMainWindow(QWidget *mainWidget)
 		widthSecondScreen = mainDesktopWidget->screenGeometry(1).width();
 		heightSecondScreen = mainDesktopWidget->screenGeometry(1).height();
 	}
-	int iWidthWindow = this->widthFirstScreen/1.2;
-	int iHeightWindow = this->heightFirstScreen/1.2;
+	int iWidthWindow = this->widthFirstScreen/1.5;
+	int iHeightWindow = this->heightFirstScreen/1.5;
 	this->move((this->widthFirstScreen-iWidthWindow)/2, 0);//(this->heightFirstScreen-iHeightWindow)/2
 	this->resize(iWidthWindow, iHeightWindow);
 

@@ -2,8 +2,9 @@
 #define ADDNEWFEATURETOFEATURELIST_H
 
 #include <QDialog>
-
+#include <QtSql>
 #include <QtWidgets>
+#include <clocale>
 
 namespace Ui {
 class AddNewFeatureToFeatureList;
