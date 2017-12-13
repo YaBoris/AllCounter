@@ -71,6 +71,7 @@ public slots:
 	int getTypeFromDB();
 	int getNameFromDB();
 	int getStatusFromDB();
+	int getFeatureList();
 
 //	bool insertNewTypeToDB();
 //	bool insertNewNameToDB();
@@ -84,6 +85,7 @@ signals:
 	void pushQueryTypeDevice(QSqlQuery);
 	void pushQueryNameDevice(QSqlQuery);
 	void pushQueryStatusDevice(QSqlQuery);
+	void pushQueryFeatureList(QSqlQuery);
 
 //	OLD
 //	refreshTable();

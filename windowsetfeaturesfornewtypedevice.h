@@ -16,7 +16,7 @@ class WindowSetFeaturesForNewTypeDevice : public QDialog
 	Q_OBJECT
 
 public:
-	explicit WindowSetFeaturesForNewTypeDevice(QString newTypeName, QWidget *parent = 0);
+	explicit WindowSetFeaturesForNewTypeDevice(QSqlquery* broker, QString newTypeName, QWidget *parent = 0);
 	~WindowSetFeaturesForNewTypeDevice();
 
 private:
@@ -36,8 +36,14 @@ private:
 
 	AddNewFeatureToFeatureList* newFeatureToFeatureList;
 
+signals:
+	void getFeatureList();
+
 private slots:
 	void createWindowAddNewFeatureToFeatureList();
+
+public slots:
+	void getFeaturesListSlot(QSqlQuery queryFeatureList);
 };
 
 #endif // SetFeaturesForNewTypeDevice_H

@@ -72,6 +72,8 @@ int brokerdb::getLenghtSerialNumber()
 	return lenghtSerialNumber;
 }
 
+
+
 //SLOTS
 
 int brokerdb::getTypeFromDB()
@@ -103,6 +105,19 @@ int brokerdb::getNameFromDB()
 int brokerdb::getStatusFromDB()
 {
 	QSqlQuery queryStatusDeviceTable;
+
+	if (!queryStatusDeviceTable.exec("SELECT * FROM required_status ORDER BY id;"))
+	{
+		qDebug() << "\n" << queryStatusDeviceTable.lastError().databaseText();
+		return 1;
+	}
+	emit pushQueryStatusDevice(queryStatusDeviceTable);
+	return 0;
+}
+
+int brokerdb::getFeatureList()
+{
+	QSqlQuery queryFeatureListTable;
 
 	if (!queryStatusDeviceTable.exec("SELECT * FROM required_status ORDER BY id;"))
 	{

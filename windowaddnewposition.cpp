@@ -153,7 +153,7 @@ WindowAddNewPosition::~WindowAddNewPosition()
 //SLOTS
 void WindowAddNewPosition::AddFeaturesToNewTypeInNewWindow()
 {
-	FeaturesTableForNewType = new WindowSetFeaturesForNewTypeDevice(NewTypeDeviceLine->text());
+	FeaturesTableForNewType = new WindowSetFeaturesForNewTypeDevice(pBroker, NewTypeDeviceLine->text());
 }
 
 void WindowAddNewPosition::AddNewNameInNewWindow()
@@ -171,7 +171,7 @@ void WindowAddNewPosition::AddNewStatusSlot()
 
 void WindowAddNewPosition::SetFeaturesForExistNameSlot()
 {
-		SelectValuesOfFeatures = new windowSelectFeatureValues;
+	SelectValuesOfFeatures = new windowSelectFeatureValues;
 }
 
 void WindowAddNewPosition::OkSlot()

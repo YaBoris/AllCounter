@@ -1,12 +1,11 @@
 #include "windowSetFeaturesForNewTypeDevice.h"
 #include "ui_windowSetFeaturesForNewTypeDevice.h"
 
-WindowSetFeaturesForNewTypeDevice::WindowSetFeaturesForNewTypeDevice(QString newTypeName, QWidget *parent) :
+WindowSetFeaturesForNewTypeDevice::WindowSetFeaturesForNewTypeDevice(QSqlquery *pBroker,  QString newTypeName, QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::WindowSetFeaturesForNewTypeDevice)
 {
 	ui->setupUi(this);
-
 
 	titleTypeName = new QLabel;
 
@@ -43,6 +42,8 @@ WindowSetFeaturesForNewTypeDevice::WindowSetFeaturesForNewTypeDevice(QString new
 	this->show();
 
 	connect (WindowSetFeaturesForNewTypeDevice::createNewFeatureButton, SIGNAL(released()), this, SLOT(createWindowAddNewFeatureToFeatureList()));
+
+//	connect
 }
 
 WindowSetFeaturesForNewTypeDevice::~WindowSetFeaturesForNewTypeDevice()
