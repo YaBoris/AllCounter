@@ -68,10 +68,10 @@ public:
 	int getLenghtSerialNumber();
 
 public slots:
-	int getTypeFromDB();
-	int getNameFromDB();
-	int getStatusFromDB();
-	int getFeatureList();
+	int getTypeFromDBSlot();
+	int getNameFromDBSlot();
+	int getStatusFromDBSlot();
+	int getFeatureListSlot();
 
 //	bool insertNewTypeToDB();
 //	bool insertNewNameToDB();

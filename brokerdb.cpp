@@ -76,7 +76,7 @@ int brokerdb::getLenghtSerialNumber()
 
 //SLOTS
 
-int brokerdb::getTypeFromDB()
+int brokerdb::getTypeFromDBSlot()
 {
 	QSqlQuery queryTypeDeviceTable;
 
@@ -89,7 +89,7 @@ int brokerdb::getTypeFromDB()
 	return 0;
 }
 
-int brokerdb::getNameFromDB()
+int brokerdb::getNameFromDBSlot()
 {
 	QSqlQuery queryNameDeviceTable;
 
@@ -102,7 +102,7 @@ int brokerdb::getNameFromDB()
 	return 0;
 }
 
-int brokerdb::getStatusFromDB()
+int brokerdb::getStatusFromDBSlot()
 {
 	QSqlQuery queryStatusDeviceTable;
 
@@ -115,18 +115,20 @@ int brokerdb::getStatusFromDB()
 	return 0;
 }
 
-int brokerdb::getFeatureList()
+int brokerdb::getFeatureListSlot()
 {
 	QSqlQuery queryFeatureListTable;
 
-	if (!queryStatusDeviceTable.exec("SELECT * FROM required_status ORDER BY id;"))
+	if (!queryFeatureListTable.exec("SELECT * FROM FEAT_TABLE_LIST ORDER BY id;"))
 	{
-		qDebug() << "\n" << queryStatusDeviceTable.lastError().databaseText();
+		qDebug() << "\n" << queryFeatureListTable.lastError().databaseText();
 		return 1;
 	}
-	emit pushQueryStatusDevice(queryStatusDeviceTable);
+	emit pushQueryFeatureList(queryFeatureListTable);
 	return 0;
 }
+
+
 
 //bool brokerdb::insertNewTypeToDB()
 //{

@@ -127,13 +127,13 @@ WindowAddNewPosition::WindowAddNewPosition(brokerdb* pBroker, QWidget *parent) :
 	connect(WindowAddNewPosition::OkButton, SIGNAL(released()), this, SLOT(OkSlot()));
 	connect(WindowAddNewPosition::CancelButton, SIGNAL(released()), this, SLOT(CancelSlot()));
 
-	QObject::connect(this, SIGNAL(getType()), pointerBroker, SLOT(getTypeFromDB()));
+	QObject::connect(this, SIGNAL(getType()), pointerBroker, SLOT(getTypeFromDBSlot()));
 	QObject::connect(pointerBroker, SIGNAL(pushQueryTypeDevice(QSqlQuery)), this, SLOT(getQueryTypeDeviceSlot(QSqlQuery)));
 
-	QObject::connect(this, SIGNAL(getName()), pointerBroker, SLOT(getNameFromDB()));
+	QObject::connect(this, SIGNAL(getName()), pointerBroker, SLOT(getNameFromDBSlot()));
 	QObject::connect(pointerBroker, SIGNAL(pushQueryNameDevice(QSqlQuery)), this, SLOT(getQueryNameDeviceSlot(QSqlQuery)));
 
-	QObject::connect(this, SIGNAL(getStatus()), pointerBroker, SLOT(getStatusFromDB()));
+	QObject::connect(this, SIGNAL(getStatus()), pointerBroker, SLOT(getStatusFromDBSlot()));
 	QObject::connect(pointerBroker, SIGNAL(pushQueryStatusDevice(QSqlQuery)), this, SLOT(getQueryStatus(QSqlQuery)));
 
 	QObject::connect(NewTypeDeviceLine, SIGNAL(textChanged(QString)), this, SLOT(ControlTypeNameInLineSlot(QString)));
@@ -153,7 +153,7 @@ WindowAddNewPosition::~WindowAddNewPosition()
 //SLOTS
 void WindowAddNewPosition::AddFeaturesToNewTypeInNewWindow()
 {
-	FeaturesTableForNewType = new WindowSetFeaturesForNewTypeDevice(pBroker, NewTypeDeviceLine->text());
+	FeaturesTableForNewType = new WindowSetFeaturesForNewTypeDevice(pointerBroker, NewTypeDeviceLine->text());
 }
 
 void WindowAddNewPosition::AddNewNameInNewWindow()
